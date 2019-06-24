@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestGradle" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-06-24T20:33:58" hostname="Arktur" time="0.001">
+  <properties/>
+  <testcase name="testMaven2" classname="TestGradle" time="0.0"/>
+  <testcase name="testMaven3" classname="TestGradle" time="0.001"/>
+  <testcase name="testMaven4" classname="TestGradle" time="0.0"/>
+  <testcase name="testMaven5" classname="TestGradle" time="0.0"/>
+  <testcase name="testMaven6" classname="TestGradle" time="0.0"/>
+  <system-out><![CDATA[testMaven2
+testMaven3
+testMaven4
+testMaven5
+testMaven6
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
