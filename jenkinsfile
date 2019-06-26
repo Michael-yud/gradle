@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-	sh 'gradle clean build'
+	sh 'gradle clean hello'
       }
     }
     stage('Report') {
