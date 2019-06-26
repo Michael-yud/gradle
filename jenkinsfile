@@ -1,0 +1,46 @@
+pipeline {
+
+  agent {
+    node {
+        label 'aws-jenkins-slave'
+    }
+  }
+  
+  options {
+	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+	timestamps()
+  }
+  
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Prepare ...'
+		echo 'GitHub clone ...'
+		sh 'git clone git@github.com:Michael-yud/gradle.git'
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Testing ...'
+
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deploying ...'
+
+      }
+    }
+  }
+
+  post {
+    failure {
+        echo 'Post failure job...'
+        emailext body: 'Please go to ${BUILD_URL} and verify the build',
+        recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+        subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) is failure"
+    }
+  }
+  
+}
+
