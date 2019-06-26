@@ -18,7 +18,7 @@ pipeline {
 		echo 'GitHub clone ...'
 		sh 'pwd'
 		sh 'ls -lah'
-		sh 'git clone git@github.com:Michael-yud/gradle.git'
+
       }
     }
     stage('Test') {
