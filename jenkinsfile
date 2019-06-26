@@ -12,35 +12,23 @@ pipeline {
   }
   
   stages {
-    stage('Build') {
-      steps {
-        echo 'Prepare ...'
-		echo 'GitHub clone ...'
-		sh 'pwd'
-		sh 'ls -lah'
-
-      }
-    }
     stage('Test') {
       steps {
-        echo 'Testing ...'
 	sh 'gradle clean build'
       }
     }
-    stage('Deploy') {
+    stage('Report') {
       steps {
-        echo 'Deploying ..'
+
 
       }
     }
   }
 
   post {
-    failure {
-        echo 'Post failure job...'
-        emailext body: 'Please go to ${BUILD_URL} and verify the build',
-        recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-        subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) is failure"
+    always {
+       	sh 'cd /home/jenkins/workspace/1steps'
+	scp -r * ubuntu@172.31.44.190:/var/www/testgradle_report/
     }
   }
   
