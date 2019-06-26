@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-	sh 'gradle build --tests "SampleTest.sample"'
+	sh 'gradle build test --tests "SampleTest.sample"'
       }
     }
     stage('Report') {
