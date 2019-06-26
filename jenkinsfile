@@ -28,7 +28,7 @@ pipeline {
   post {
     always {
        	sh 'cd /home/jenkins/workspace/1steps'
-	scp -r * ubuntu@172.31.44.190:/var/www/testgradle_report/
+	sh 'scp -r * ubuntu@172.31.44.190:/var/www/testgradle_report/'
     }
   }
   
