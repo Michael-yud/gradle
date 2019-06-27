@@ -7,14 +7,14 @@ pipeline {
   }
   
   options {
-	buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2'))
+	buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
 	timestamps()
   }
   
   stages {
     stage('Test') {
       steps {
-	sh 'gradle clean build'
+	sh 'gradle clean rrrr'
       }
     }
     stage('Return system to the default state') {
