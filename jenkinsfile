@@ -17,9 +17,9 @@ pipeline {
 	sh 'gradle clean build'
       }
     }
-    stage('Report') {
+    stage('Return system to the default state') {
       steps {
-          echo '---------------'
+          echo '--------REVERT CHANGES--------'
 	 
      }
     }
@@ -30,6 +30,4 @@ pipeline {
 	sh 'scp -r /home/jenkins/workspace/1steps/build/reports/tests/test/* ubuntu@172.31.44.190:/var/www/testgradle_report/'
     }
   }
- 
 }
-
