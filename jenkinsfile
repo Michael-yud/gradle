@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Return system to the default state') {
       steps {
-          echo '--------REVERT CHANGES--------'
+          echo '---------REVERT CHANGES---------'
 	 
      }
     }
