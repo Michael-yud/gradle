@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-	sh 'gradle clean rrrr'
+	sh 'gradle clean build'
       }
     }
     stage('Return system to the default state') {
