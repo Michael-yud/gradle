@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-	sh 'gradle build'
+	sh 'gradle clean build'
       }
     }
     stage('Report') {
@@ -30,6 +30,6 @@ pipeline {
 	sh 'scp /home/jenkins/workspace/1steps/build/reports/tests/test/* ubuntu@172.31.44.190:/var/www/testgradle_report/'
     }
   }
-  
+ 
 }
 
