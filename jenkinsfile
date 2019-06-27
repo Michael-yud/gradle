@@ -27,6 +27,7 @@ pipeline {
 
   post {
     success {
+    	sh 'ssh ubuntu@172.31.44.190 "rm -rf /var/www/testgradle_report/*" '
 	sh 'scp -r /home/jenkins/workspace/1steps/build/reports/tests/test/* ubuntu@172.31.44.190:/var/www/testgradle_report/'
     }
   }
